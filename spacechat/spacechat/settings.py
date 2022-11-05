@@ -24,7 +24,7 @@ PROJECT_DIR = BASE_DIR.parent
 SECRET_KEY = 'django-insecure-^)t3=6fpjry&oq268dl$p^ef+t2%c)uy3+ly*qa((h3-o&u_6*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 

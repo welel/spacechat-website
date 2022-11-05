@@ -1,57 +1,22 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block main %}
 
-<div class="container h-100" style="margin-top: 5rem;">
-  <div class="row h-100 justify-content-center align-items-center">
-    <div class="col-6 md-4 p-5 ">
-      <textarea id="chat-text" class="text-white border-0" cols="60" rows="15" style="background-color:#0c162d;" disabled></textarea><br>
-      <input id="input" class="text-white" type="text" size="60" style="background-color:#0c162d;"><br>
-      <input id="submit" class="btn btn-secondary" type="button" value="Send">
-    </div>
+<div id="chat_container">
+
+  <div id="chat_messages_container"></div>
+
+  <div id="chat_input">
+    <label>>&nbsp;</label>
+    <textarea id="input" type="text" rows="3"></textarea>
+    <input id="submit" type="button" hidden>
   </div>
+  
 </div>
 
 {{ room_name|json_script:"room-name" }}
-<script>
-
-    document.querySelector('#submit').onclick = function (e) {
-      const messageInputDom = document.querySelector('#input');
-      const message = messageInputDom.value;
-      const username = getCookie('username');
-      chatSocket.send(JSON.stringify({
-        'message': message,
-        'username': username,
-      }));
-      messageInputDom.value = '';
-    };
-
-    const roomName = JSON.parse(document.getElementById('room-name').textContent);
-    
-    const chatSocket = new WebSocket(
-        'ws://' +
-        window.location.host +
-        '/ws/chat/' +
-        roomName +
-        '/'
-    );
-
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    chatSocket.onmessage = function (e) {
-        const data = JSON.parse(e.data);
-        document.querySelector('#chat-text').value += (data.username + ': ' + data.message + '\n');
-    }
-
-    document.querySelector('#input').focus();
-        document.querySelector('#input').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#submit').click();
-            }
-    };
-</script>
+<script src="{% static 'js/utils.js' %}"></script>
+<script src="{% static 'js/chatroom_backend.js' %}"></script>
 {% endblock %}

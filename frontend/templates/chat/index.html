@@ -3,6 +3,8 @@
 
 {% block main %}
 
+{% load static %}
+
 <div id="form_container">
     <p id="greeting" class="greeting">|</p>
     <p id="greeting2" class="greeting"></p>
@@ -21,66 +23,8 @@
     <p id="validation_message_input_text"></p>
 </div>
 
-
-<script>
-    // Redirect to a room
-    document.querySelector('#enter-room').onkeyup = function(e) {
-        if (e.keyCode === 13 && document.getElementById("validation_message_input_text").innerText == '') {
-            const username = document.getElementById('username-input').value;
-            document.cookie = 'username=' + encodeURIComponent(username);
-
-            const roomName = document.getElementById('enter-room').value;
-            const url = 'http://' + window.location.host + '/' + roomName + '/'
-            window.location.href = url;
-        }
-    };
-
-    // Utils
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    async function typeWriter(text, elementId, speed) {
-        let i = 0;
-        while (i < text.length) {
-            document.getElementById(elementId).innerHTML = document.getElementById(elementId).innerHTML.slice(0, -1);
-            document.getElementById(elementId).innerHTML += text.charAt(i) + '|';
-            i++;
-            await sleep(speed);
-        }
-        document.getElementById(elementId).innerHTML = document.getElementById(elementId).innerHTML.slice(0, -1);
-    }
-
-    function usernameValidation(e) {
-        const usernameValidator = document.getElementById("validation_message_input_text");
-        if (document.getElementById("username-input").value.length > 20) {
-            usernameValidator.innerText = "Username should be less than 20 symbols.\n"
-        } else {
-            usernameValidator.innerText = "";
-        }
-        if (e.keyCode == 13) {
-            document.getElementById("room_form").hidden = false;
-            document.getElementById('enter-room').focus();
-        }
-    }
-    document.getElementById("username-input").addEventListener("keyup", usernameValidation);
-
-    const greetingText = 'Welcome to SpaceChat!';
-    const greetingText2 = 'Let\'s connect to a room';
-
-    window.onload = (event) => {
-        async function connectionFormAnimation(){
-
-            // Greet
-            await typeWriter(greetingText, 'greeting', 50);
-            document.getElementById('greeting2').innerHTML += '|'
-            await typeWriter(greetingText2, 'greeting2', 50);
-            
-            // Show username form
-            document.getElementById('username_form').hidden = false;
-            document.getElementById('username-input').focus();
-        };
-        connectionFormAnimation();
-    };
-
-</script>
+<script src="{% static 'js/utils.js' %}"></script>
+<script src="{% static 'js/validation.js' %}"></script>
+<script src="{% static 'js/index_animation.js' %}"></script>
+<script src="{% static 'js/index_backend.js' %}"></script>
 {% endblock %}
