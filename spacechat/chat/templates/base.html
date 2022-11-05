@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Space Chat</title>
+    <style>
+        body{
+            background-color: #040d21;
+        }
+
+        .main{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            height: 1px;
+            width: 1px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: -46vw 12vh 0px 1px #fff,14vw 47vh 1px 2px #fff,-20vw 40vh 2px 3px #fff,6vw -39vh 2px 2px #fff,-15vw -10vh 0px 0px #fff,-37vw -29vh 0px 2px #fff,-43vw -21vh 3px 2px #fff,14vw -14vh 3px 3px #fff,50vw 9vh 0px 2px #fff,4vw 32vh 0px 3px #fff,33vw -11vh 3px 0px #fff,42vw 33vh 2px 2px #fff,50vw 36vh 0px 0px #fff,-30vw -27vh 1px 2px #fff,3vw 34vh 2px 0px #fff,5vw 45vh 2px 2px #fff,-43vw -39vh 0px 2px #fff,25vw 38vh 0px 2px #fff,2vw 18vh 1px 2px #fff,-11vw 8vh 3px 2px #fff,22vw -3vh 2px 1px #fff,-3vw -5vh 3px 3px #fff,34vw 18vh 2px 3px #fff,23vw 49vh 3px 1px #fff,-50vw -15vh 3px 1px #fff,10vw 50vh 0px 2px #fff,11vw 17vh 2px 3px #fff,19vw 38vh 1px 1px #fff,35vw 13vh 2px 1px #fff,28vw 15vh 1px 3px #fff,-19vw -31vh 0px 3px #fff,-41vw -14vh 1px 2px #fff,30vw -20vh 2px 1px #fff,42vw -32vh 3px 1px #fff,8vw 22vh 1px 3px #fff,26vw -34vh 2px 1px #fff,3vw 31vh 3px 2px #fff,16vw -5vh 1px 1px #fff,37vw 49vh 1px 1px #fff,-17vw -19vh 0px 2px #fff,-13vw -42vh 1px 2px #fff,26vw -19vh 0px 3px #fff,49vw 35vh 0px 2px #fff,2vw -38vh 3px 3px #fff,-13vw 42vh 0px 2px #fff,-49vw -46vh 3px 0px #fff,16vw -11vh 2px 2px #fff,-33vw -15vh 3px 3px #fff,-32vw -30vh 2px 0px #fff,-44vw -31vh 3px 0px #fff,-20vw -14vh 2px 3px #fff,-45vw -17vh 3px 2px #fff,2vw 30vh 0px 1px #fff,41vw -18vh 1px 1px #fff,11vw -2vh 3px 2px #fff,11vw -20vh 0px 3px #fff,44vw 0vh 1px 1px #fff,-1vw 19vh 0px 0px #fff,3vw 35vh 1px 2px #fff,-5vw 1vh 0px 3px #fff,30vw 25vh 2px 3px #fff,-38vw 43vh 3px 0px #fff,-2vw 14vh 2px 3px #fff,12vw -27vh 1px 2px #fff,-42vw -49vh 3px 2px #fff,-45vw 27vh 0px 0px #fff,-47vw 6vh 2px 0px #fff,37vw 44vh 0px 0px #fff,-7vw -5vh 1px 3px #fff,-39vw -31vh 1px 0px #fff,-20vw -14vh 1px 2px #fff,-38vw -21vh 2px 3px #fff,-1vw 41vh 3px 2px #fff,23vw 46vh 1px 3px #fff,-2vw 48vh 0px 1px #fff,26vw -46vh 1px 3px #fff,-23vw 0vh 2px 3px #fff,-20vw 10vh 3px 2px #fff,35vw 11vh 1px 2px #fff,-40vw -34vh 3px 0px #fff,49vw -9vh 0px 2px #fff,-18vw -13vh 1px 2px #fff,46vw -34vh 2px 3px #fff,40vw 16vh 3px 0px #fff,43vw -5vh 3px 0px #fff,-26vw -42vh 0px 2px #fff,-4vw -19vh 2px 3px #fff,-16vw -10vh 0px 2px #fff,36vw 39vh 1px 3px #fff,35vw -32vh 0px 3px #fff,22vw 6vh 1px 1px #fff,19vw 5vh 2px 1px #fff,19vw -28vh 2px 3px #fff,-8vw -25vh 0px 1px #fff,-17vw -37vh 1px 3px #fff,3vw 3vh 0px 0px #fff,-1vw 40vh 0px 2px #fff,12vw 35vh 2px 2px #fff,40vw 19vh 0px 0px #fff,-17vw -12vh 2px 2px #fff;
+            animation: zoom 70s alternate infinite;
+        }
+
+        @keyframes zoom {
+            0%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(1.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="main"></div>
+
+{% block main %}{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</body>
+</html>

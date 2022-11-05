@@ -25,21 +25,20 @@ SECRET_KEY = 'django-insecure-^)t3=6fpjry&oq268dl$p^ef+t2%c)uy3+ly*qa((h3-o&u_6*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '9867-213-87-148-233.eu.ngrok.io']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'daphne',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'channels',
 
     'chat.apps.ChatConfig',
 ]
