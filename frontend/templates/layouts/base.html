@@ -1,0 +1,26 @@
+<!-- Base template -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="{% static 'css/stars_animation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+<!-- Space background div. Styles in `stars_animaiton.css`. -->
+<div class="space_background"></div>
+
+<div id="main_wrapper">
+    {% block main %}{% endblock %}
+</div>
+
+</body>
+</html>

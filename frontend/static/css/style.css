@@ -1,0 +1,55 @@
+/*  General styles of the project.
+*
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-family: "JetBrains Mono";
+    color: rgb(238, 238, 238);
+}
+
+#main_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#form_container {
+    width: 600px;
+    margin-top: 180px;
+    padding: 20px 20px 10px 30px;
+    background-color: #0c162d;
+    border: 1px solid #202637;
+    border-radius: 10px;
+    font-size: 120%;
+}
+
+.greeting {
+    color: #627597;
+}
+
+.input_text .label {
+    margin-bottom: 7px;
+    color: #00cfc8;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.input_text input {
+    width: 400px;
+    background-color: #0c162d;
+    border: 0px;
+    font-family: "JetBrains Mono";
+    color: rgb(238, 238, 238);
+    font-size: 110%;
+}
+
+.input_text input:focus {
+    outline: none;
+}
+
+#validation_message_input_text {
+    height: 30px;
+    color: #627597;
+}
