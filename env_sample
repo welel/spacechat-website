@@ -1,0 +1,2 @@
+# Fill data and rename to `.env`
+SECRET_KEY='CHANGE_OR_LEAVE_SO'
